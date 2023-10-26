@@ -1,0 +1,14 @@
+logdir: 'results/toy2/exp4/irae-bezier_zdim5_reg0.1_seed1/'
+data:
+  training:
+    pretrained:
+      identifier: irae-bezier_zdim5_reg0.1_seed1
+      config_file: irae-bezier.yml
+      ckpt_file: model_best.pkl
+      root: results/toy2/exp4
+  validation:
+    pretrained:
+      identifier: irae-bezier_zdim5_reg0.1_seed1
+      config_file: irae-bezier.yml
+      ckpt_file: model_best.pkl
+      root: results/toy2/exp4

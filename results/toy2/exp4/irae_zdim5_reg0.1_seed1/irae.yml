@@ -1,0 +1,73 @@
+data:
+  training:
+    batch_size: 10
+    dataset: Toy2
+    n_workers: 4
+    num_control_points: 10
+    root: datasets/EXP4
+    shuffle: true
+    split: training
+  validation:
+    batch_size: 10
+    dataset: Toy2
+    n_workers: 4
+    num_control_points: 10
+    root: datasets/EXP4
+    shuffle: true
+    split: validation
+device: cuda:0
+logdir: results/toy2/exp4
+logger:
+  endwith:
+  - '@'
+  - '#'
+  type: base
+model:
+  T: 1
+  arch: cirae
+  decoder:
+    activation:
+    - elu
+    - elu
+    - elu
+    - elu
+    arch: fc_vec
+    l_hidden:
+    - 256
+    - 256
+    - 256
+    - 256
+    out_activation: linear
+  dim: 2
+  encoder:
+    activation:
+    - elu
+    - elu
+    - elu
+    - elu
+    arch: fc_vec
+    l_hidden:
+    - 256
+    - 256
+    - 256
+    - 256
+    out_activation: linear
+  final_projection: true
+  iso_reg: 0.1
+  metric: identity
+  num_control_points: 10
+  tau_dim: 2
+  x_dim: 20
+  z_dim: 5
+trainer: cAE
+training:
+  eval_interval: null
+  n_epoch: 3000
+  optimizer:
+    lr: 0.0001
+    name: adam
+  print_interval: 100
+  seed: 1
+  val_interval: 100
+  visualize_interval: 1000
+wandb_project_name: imml

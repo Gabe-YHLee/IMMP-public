@@ -1,0 +1,59 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.9.0",
+    "heartbeatAt": "2023-10-26T01:43:28.408984",
+    "startedAt": "2023-10-26T01:43:25.349602",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--base_config",
+        "configs\\Toy\\Exp1\\base_config.yml",
+        "--config",
+        "configs\\Toy\\Exp1\\irae-bezier.yml",
+        "--device",
+        "0",
+        "--run",
+        "test"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\21448\\Desktop\\repos\\IMMP-public\\train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/Gabe-YHLee/IMMP-public",
+        "commit": "310bae9b64a96c7e71b7a75a75a74d151727847f"
+    },
+    "email": "ylee@kias.re.kr",
+    "root": "C:/Users/21448/Desktop/repos/IMMP-public",
+    "host": "yhlee_kias_pc",
+    "username": "21448",
+    "executable": "C:\\Users\\21448\\anaconda3\\envs\\epi\\python.exe",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 3701.0,
+        "min": 0.0,
+        "max": 3701.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3701.0,
+            "min": 0.0,
+            "max": 3701.0
+        }
+    ],
+    "disk": {
+        "total": 465.15917587280273,
+        "used": 245.28246307373047
+    },
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        }
+    ],
+    "memory": {
+        "total": 15.927108764648438
+    }
+}

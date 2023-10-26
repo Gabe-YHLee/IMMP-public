@@ -1,0 +1,72 @@
+data:
+  training:
+    batch_size: 10
+    dataset: Toy
+    n_workers: 4
+    num_control_points: 10
+    root: datasets/EXP3
+    shuffle: true
+    split: training
+  validation:
+    batch_size: 10
+    dataset: Toy
+    n_workers: 4
+    num_control_points: 10
+    root: datasets/EXP3
+    shuffle: true
+    split: validation
+device: cuda
+logdir: results/Toy/Exp3
+logger:
+  endwith:
+  - '@'
+  - '#'
+  type: base
+model:
+  T: 1
+  arch: irae
+  decoder:
+    activation:
+    - elu
+    - elu
+    - elu
+    - elu
+    arch: fc_vec
+    l_hidden:
+    - 256
+    - 256
+    - 256
+    - 256
+    out_activation: linear
+  dim: 2
+  encoder:
+    activation:
+    - elu
+    - elu
+    - elu
+    - elu
+    arch: fc_vec
+    l_hidden:
+    - 256
+    - 256
+    - 256
+    - 256
+    out_activation: linear
+  init_final_projection: true
+  iso_reg: 1
+  metric: bezier
+  num_control_points: 10
+  x_dim: 20
+  z_dim: 5
+trainer: base
+training:
+  eval_interval: 100
+  n_epoch: 3000
+  optimizer:
+    lr: 0.0001
+    name: adam
+  print_interval: 100
+  seed: 1
+  val_interval: 100
+  visualize_interval: 100
+wandb_project_name: imml

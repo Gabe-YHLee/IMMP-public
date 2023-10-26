@@ -1,0 +1,63 @@
+data:
+  training:
+    Toy2:
+      dataset: Toy2
+      num_control_points: 10
+      root: datasets/EXP4
+      split: training
+    batch_size: 10
+    dataset: GMM
+    n_workers: 4
+    pretrained:
+      ckpt_file: model_best.pkl
+      config_file: ae.yml
+      identifier: ae_zdim5_regnone_seed1
+      root: results/toy2/exp4
+    shuffle: true
+  validation:
+    Toy2:
+      dataset: Toy2
+      num_control_points: 10
+      root: datasets/EXP4
+      split: training
+    batch_size: 10
+    dataset: GMM
+    n_workers: 4
+    pretrained:
+      ckpt_file: model_best.pkl
+      config_file: ae.yml
+      identifier: ae_zdim5_regnone_seed1
+      root: results/toy2/exp4
+    shuffle: true
+device: cuda:0
+logdir: results/toy2/exp4/ae_zdim5_regnone_seed1/
+logger:
+  endwith:
+  - '@'
+  - '#'
+  type: base
+model:
+  arch: gmm_estimator
+  dim: 5
+  in_dim: 2
+  network:
+    activation:
+    - elu
+    - elu
+    arch: fc_vec
+    l_hidden:
+    - 512
+    - 512
+    out_activation: linear
+  num_components: 2
+trainer: gmmest
+training:
+  eval_interval: null
+  n_epoch: 3000
+  optimizer:
+    lr: 0.001
+    name: adam
+  print_interval: 100
+  val_interval: 100
+  visualize_interval: null
+wandb_project_name: imml

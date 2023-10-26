@@ -1,0 +1,46 @@
+wandb_project_name: imml
+logdir: 'results/toy/exp2'
+logger: 
+  type: base
+  endwith: ['@', '#']
+model:
+  encoder:
+    arch: fc_vec
+    l_hidden: [256, 256, 256, 256, ]
+    activation: ['elu', 'elu', 'elu', 'elu', ]
+    out_activation: 'linear'
+  decoder:
+    arch: fc_vec
+    l_hidden: [256, 256, 256, 256, ]
+    activation: ['elu', 'elu', 'elu', 'elu', ]
+    out_activation: 'linear'
+  init_final_projection: True
+  x_dim: 20
+  z_dim: 2
+data:
+  training:
+    dataset: Toy
+    root: datasets/EXP2
+    batch_size: 10
+    n_workers: 4
+    split: training
+    shuffle: True
+    num_control_points: 10
+  validation:
+    dataset: Toy
+    root: datasets/EXP2
+    batch_size: 10
+    n_workers: 4
+    split: validation
+    shuffle: True
+    num_control_points: 10
+trainer: base
+training:
+  n_epoch: 3000
+  optimizer:
+    name: 'adam'
+    lr: 0.0001
+  print_interval: 100
+  val_interval: 100
+  eval_interval: 100
+  visualize_interval: 100

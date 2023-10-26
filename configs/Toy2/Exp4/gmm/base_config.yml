@@ -1,0 +1,45 @@
+wandb_project_name: imml
+logger: 
+  type: base
+  endwith: ['@', '#']
+model:
+  arch: gmm_estimator
+  network:
+    arch: fc_vec
+    l_hidden: [512, 512, ]
+    activation: ['elu', 'elu', ]
+    out_activation: 'linear'
+  dim: 5
+  in_dim: 2
+  num_components: 2
+data:
+  training:
+    dataset: GMM
+    Toy2:
+      dataset: Toy2
+      root: datasets/EXP4
+      num_control_points: 10
+      split: training
+    batch_size: 10
+    n_workers: 4
+    shuffle: True
+  validation:
+    dataset: GMM
+    Toy2:
+      dataset: Toy2
+      root: datasets/EXP4
+      num_control_points: 10
+      split: training
+    batch_size: 10
+    n_workers: 4
+    shuffle: True
+trainer: gmmest
+training:
+  n_epoch: 3000
+  optimizer:
+    name: 'adam'
+    lr: 0.001
+  print_interval: 100
+  val_interval: 100
+  eval_interval: null
+  visualize_interval: null

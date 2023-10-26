@@ -1,0 +1,7 @@
+model:
+  arch: irae
+  metric: 'bezier'
+  T: 1
+  num_control_points: 10
+  dim: 2
+  iso_reg: 0.1
